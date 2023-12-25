@@ -43,8 +43,7 @@ if (strtotime($user["reset_token_expires_at"]) <= time()) {
 	<input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
             <h2 class="form-heading">Reset your password here!</h2>
             <div>
-                <p class="note">Hi! Please keep in mind that your password need to conclude at least one upper
-                    character as well as one number.</p>
+
                 <p class="note">After submit successfully, your new password will take effect and be used from now
                     on.</p>
             </div>

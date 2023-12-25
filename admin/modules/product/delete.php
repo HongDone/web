@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delete_prod"])) {
         echo "<p style = 'color:green'>Deleted product sucessfully!</p>";   
     }
     else{
-        echo "<p style = 'color:red'>It's seem like we had deals with this product, please delete them before</p>";
+        echo "<p style = 'color:red'>Cannot delete: It's seem like we had deals with this product</p>";
     }
     $con->close();
 }

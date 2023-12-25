@@ -1,9 +1,4 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
-    $_SESSION["query"] = $_POST["s_query"];
-}
 
-?>
 <link rel="stylesheet" href="./css/order.css">
 <main class="main">
     <div class="container2">
@@ -42,33 +37,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
                     <th style="width: 15%;" id="order-actions">Actions</th>
                 </tr>
      <?php
-     $itemsPerPage = 5;
-     if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-         $currentPage = $_GET['id'];
-     } else {
-         $currentPage = 1;
-     }
-
-     $offset = ($currentPage - 1) * $itemsPerPage;
 
      if (isset($_POST["submit_gr_by_status"])) {
          $key = $_POST["status"];
          unset($_POST["submit_gr_by_status"]);
-
-         $sql = "select * from orders where payment_status = '$key' order by order_date desc LIMIT $offset, $itemsPerPage";
-         $totalItemsQuery = "SELECT COUNT(*) as total FROM orders where payment_status = '$key'";
+         $sql = "select * from orders where payment_status = '$key' order by order_date desc ";
      } else {
-         if (isset($_SESSION["query"]) && $_SESSION["query"] != '') {
-             if (isset($_SESSION["query"])) {
-                 $totalItemsQuery = "SELECT COUNT(*) as total FROM orders where email  like  '%$_SESSION[query]%'";
-                 $sql = "SELECT * FROM orders where email like '%$_SESSION[query]%' LIMIT $offset, $itemsPerPage";
-             }
+
+         if (isset($_POST['search'])) {
+             $key = $_POST['s_query'];
+                 $sql = "SELECT * FROM orders where email like '%$key%'";
+             unset($_POST['search']);
          } else {
 
-             $sql = "SELECT * FROM orders LIMIT $offset, $itemsPerPage";
-             $totalItemsQuery = "SELECT COUNT(*) as total FROM orders";
+             $sql = "SELECT * FROM orders order by order_date desc";
          }
-         unset($_SESSION["query"]);
      }
     $result = mysqli_query($con, $sql);
     if ($result->num_rows < 1) {
@@ -111,33 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
          
          echo "</table>
         </div>";
-         $totalItemsResult = mysqli_query($con, $totalItemsQuery);
-         $totalItems = mysqli_fetch_assoc($totalItemsResult)['total'];
-         $totalPages = ceil($totalItems / $itemsPerPage);
-         echo ($totalItems);
-         echo $totalPages;
         echo "<div class='pagination-container'>
             <div class='showing-status'>
                 <span>Total: </span>
                 <?php echo '<span class='page-value'>$temp orders</span> 
             </div>";
-        echo "<div class='pagingation-nav-container'>";
-        echo "<ul class='pagination-nav'>";
-       
-        for ($i = 1; $i <= $totalPages; $i++) {
-            echo "
-                    <a href='index.php?page=order&id=$i'>
-                    <li class='page-item'>
-                    
-                    $i
-                    
-                    </li>
-                    </a>
-                    ";
-        }
-        
-        echo "</ul>
-        </div> ";
         echo "</div>
     </div>
 </main>";

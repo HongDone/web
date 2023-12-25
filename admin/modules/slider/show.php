@@ -1,5 +1,24 @@
 
+<div class="view-and-search">
+    <div class = "gr-by-prod" style = "width: 700px;">
+        <form action = "" method = "POST">
+            <span>Group by product</span>
+            <select name="prod" id="" style = "height: 35px ; font-size: 12pt; cursor: pointer; width: 400px; border-radius: 5px; padding-left: 10px;">
+                <?php
+                $sql = "select * from product";
+                $result = $con->query($sql);
+                for ($i = 0; $i < $result->num_rows; $i++){
+                    $row = $result->fetch_row();
+                        echo "<option value = '$row[0]'>$row[2]</option>";
+                }
+                ?>
+            </select>
+            <input type="submit" class="search_sub" value = "Submit" name = "prod_sub">
+        </form>
+    </div>
+</div>
 <div class="table-container" id="users-table-container">
+
     <table border=0 id="users-table">
         <thead>
             <tr>
@@ -14,15 +33,12 @@
             </tr>
         </thead>
             <?php
-            $itemsPerPage = 5;
-            if (isset($_GET['id'])) {
-                $currentPage = $_GET['id'];
+            if(isset($_POST["prod_sub"])){
+                $key = $_POST["prod"];
+                $sql = "select * from slider where product_id = '$key'";
             } else {
-                $currentPage = 1;
+                $sql = "select * from slider  order by created_at desc";
             }
-            $offset = ($currentPage - 1) * $itemsPerPage;
-
-            $sql = "select * from slider  order by created_at desc LIMIT $offset, $itemsPerPage";
             $result = mysqli_query($con, $sql);
             if ($result->num_rows < 1) {
                 echo "<tr><td colspan = 4><p style = 'color: red'>No image founded!</p></td></tr>";

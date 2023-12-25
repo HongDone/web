@@ -7,7 +7,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
     <div class = "header">
         <div class="header-logo-brand-container">
             <a href="index.php">
-                <h2 class = "brand-name">Logo Brand</h2>
+                    <img src="./images/Logo_web-removebg-preview" alt="">
             </a>
         </div>
         <div class="header-cart-and-user">

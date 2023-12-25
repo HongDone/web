@@ -67,20 +67,12 @@ function show_all_category($result){
         </thead>
         <tbody>
             <?php
-            $itemsPerPage = 5;
-            if (isset($_GET['id'])) {
-                $currentPage = $_GET['id'];
-            } else {
-                $currentPage = 1;
-            }
-            $offset = ($currentPage - 1) * $itemsPerPage;
-
             $temp = 0;
             if (isset($_SESSION["query"])) {
-                $sql = "select * from category where category_id like '%$_SESSION[query]%' or category_name like '%$_SESSION[query]%' LIMIT $offset, $itemsPerPage ";
+                $sql = "select * from category where category_id like '%$_SESSION[query]%' or category_name like '%$_SESSION[query]%' ";
                 $totalItemsQuery = "SELECT COUNT(*) as total FROM category where category_id like '%$_SESSION[query]%' or category_name like '%$_SESSION[query]%' ";
             } else {
-                $sql = "select * from category order by category_id desc  LIMIT $offset, $itemsPerPage ";
+                $sql = "select * from category order by category_id desc ";
                 $totalItemsQuery = "SELECT COUNT(*) as total FROM category";             
             }
             $result = $con->query($sql);
@@ -90,9 +82,6 @@ function show_all_category($result){
             } else {
                 echo "<tr><td colspan = 4 style = 'color: red; height: 35px;' >Let create firt category!</td></tr>";
             }
-            $totalItemsResult = mysqli_query($con, $totalItemsQuery);
-            $totalItems = mysqli_fetch_assoc($totalItemsResult)['total'];
-            $totalPages = ceil($totalItems / $itemsPerPage);
             $con->close();
             ?>
         </tbody>
@@ -105,22 +94,4 @@ function show_all_category($result){
         echo "<span class='value'>$temp</span>"
             ?>
         <span>categories</span>
-    </div>
-        <?php
-        echo "<div class='pagingation-nav-container'>";
-        echo "<ul class='pagination-nav'>";
-        for ($i = 1; $i <= $totalPages; $i++) {
-            echo "
-                    <a href='index.php?page=category&id=$i'>
-                    <li class='page-item'>
-                    
-                    $i
-                    
-                    </li>
-                    </a>
-                    ";
-        }
-        echo "</ul>
-        </div> ";
-        ?>
 </div>

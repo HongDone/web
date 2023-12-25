@@ -1,10 +1,10 @@
 <head>
     <link rel="stylesheet" href="./css/myorder.css">
+
 </head>
 <div class = "container1">
-    <main>
-
-<section>
+    <main >
+        <section>
     <h1 class="titletable">My orders</h1>
     <table class="orderinfor">
         <style>
@@ -58,12 +58,11 @@
                 <hr>
             </td>
         </tr>";
-            }
+        }
             echo "</table>";
             echo "<p style='margin-left: 200px'> Total: $temp orders</p>";
         }
         ?>
-
-</section>
+        </section>
 </main>
 </div>

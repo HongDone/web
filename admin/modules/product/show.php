@@ -1,7 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
-    $_SESSION["query"]  = $_POST["s_query"];
-}
+
 
 function show_single_product($result, $i)
 {
@@ -55,14 +53,14 @@ function show_all_product($result)
     <div class="search-box">
         <form method="POST" action="">
             <span>Find product</span>
-            <input type="text" name="s_query" class="search-term" id="product-search-term">
+            <input type="text" name="q" class="search-term" id="product-search-term">
             <input type="submit" name="search" class="search_sub" value="Search">
         </form>
     </div>
     <div class = "gr-by-category" style = "width: 500px;">
         <form action = "" method = "POST">
             <span>Group by category</span>
-            <select name="sel_cate" id="" style = "height: 35px ; font-size: 12pt; cursor: pointer; width: 200px; border-radius: 5px; padding-left: 40px;">
+            <select name="cate" id="" style = "height: 35px ; font-size: 12pt; cursor: pointer; width: 200px; border-radius: 5px; padding-left: 40px;">
                 <?php
                 $sql = "select * from category";
                 $result = $con->query($sql);
@@ -95,39 +93,22 @@ function show_all_product($result)
         </thead>
         <tbody>
             <?php
-            $itemsPerPage = 5;
-            if (isset($_GET['id'])) {
-                $currentPage = $_GET['id'];
-            } else {
-                $currentPage = 1;
-            }
-            $offset = ($currentPage - 1) * $itemsPerPage;
 
             $temp = 0;
-            if (isset($_POST["submit_gr_by_cate"])) {
-                if (isset($_SESSION["query"]))
-                    unset($_SESSION["query"]);
-                $gr = $_POST["sel_cate"];
-                $sql = "select * from product where category_id = '$gr' LIMIT $offset, $itemsPerPage ";
-                $totalItemsQuery = "SELECT COUNT(*) as total FROM product where category_id = '$gr'";
-                // $result = $con->query($sql);
-                // if ($result->num_rows > 0) {
-                //     $temp = $result->num_rows;
-                //     show_all_product($result);
-                // } else {
-                //     echo "<tr><td colspan = 6 style = 'color: red; height: 35px;' >Found no products!</td></tr>";
-                // }
-                
-            } else {
-                if (isset($_SESSION["query"])) {
-                    $sql = "select * from product where product_id like '%$_SESSION[query]%' or title like '%$_SESSION[query]%' LIMIT $offset, $itemsPerPage  ";
-                    $totalItemsQuery = "SELECT COUNT(*) as total FROM product where product_id like '%$_SESSION[query]%' or title like '%$_SESSION[query]%'";
+            if (isset($_POST["search"])) {
+                $key = $_POST["q"];
+                $sql = "select * from product where title like '%$key%' ;";
+                unset($_POST["search"]);
+            } else
+                if (isset($_POST["submit_gr_by_cate"])) {
+                    $key = $_POST["cate"];
+                    $sql = "select * from product where category_id = '$key' ";
+                    unset($_POST["submit_gr_by_cate"]);
+                } else {
+                    $shouldCallFunction = false;
+                    $sql = "select * from product";
                 }
-                else{
-                     $sql = "select * from product order by created_at desc LIMIT $offset, $itemsPerPage ";
-                    $totalItemsQuery = "SELECT COUNT(*) as total FROM product";
-                }   
-                }
+         
             $result = $con->query($sql);
             if ($result->num_rows > 0) {
                 $temp = $result->num_rows;
@@ -135,10 +116,7 @@ function show_all_product($result)
             } else {
                 echo "<tr><td colspan = 6 style = 'color: red; height: 35px;' >Found no products!</td></tr>";
             }
-            $totalItemsResult = mysqli_query($con, $totalItemsQuery);
-            $totalItems = mysqli_fetch_assoc($totalItemsResult)['total'];
-            $totalPages = ceil($totalItems / $itemsPerPage);
-            $con->close();
+
             ?>
         </tbody>
     </table>
@@ -151,21 +129,4 @@ function show_all_product($result)
             ?>
         <span>products</span>
     </div>
-    <?php
-    echo "<div class='pagingation-nav-container'>";
-    echo "<ul class='pagination-nav'>";
-    for ($i = 1; $i <= $totalPages; $i++) {
-        echo "
-                    <a href='index.php?page=product&id=$i'>
-                    <li class='page-item'>
-                    
-                    $i
-                    
-                    </li>
-                    </a>
-                    ";
-    }
-    echo "</ul>
-        </div> ";
-    ?>
 </div>

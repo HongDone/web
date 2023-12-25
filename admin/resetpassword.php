@@ -49,7 +49,6 @@ if (strtotime($admin["reset_token_expires_at"]) <= time()) {
 
                 <h2 class="form-heading">Reset your password here!</h2>
                 <div>
-                    <p class="note">Hi! Please keep in mind that your password need to conclude at least one upper character as well as one number.</p>
                     <p class="note">After submit successfully, your new password will take effect and be used from now on.</p>
                 </div>
                 <input type="password" maxlength="30" class="input-password" id="new-password" name="new-password" placeholder="Enter new password" onfocus="clearPlaceHolder(this)">

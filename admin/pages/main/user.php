@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="./css/user.css">
 <link rel="stylesheet" href="./css/category.css">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/product.css">
 <main class="main">
     <div class="container2">
         <div class="users">

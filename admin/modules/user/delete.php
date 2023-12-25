@@ -1,6 +1,6 @@
 <div class="addproduct-form-container">
     </style>
-    <h3>Delete user </h3>
+    <h3>Deactive user </h3>
     <hr>
     <?php $email = $_GET["id"];
     $sql = "select * from user where email = '$email'";
@@ -63,31 +63,28 @@
                     <?php echo "<h4>Confirm password</h4> ";?>
                 </td>
                 <td>
-                    <?php echo "<input type = 'password' name = 'password' placeholder = 'This user password'>"; ?>
+                    <?php echo "<input type = 'password' required name = 'password' placeholder = 'This user password'>"; ?>
                 </td>
             </tr>
         </table>
-        <p style = 'color: red'>If you choose to delete, you will delete all the information relevant to this user as cart items and orders.</p>
+        <p style = 'color: red'>If you choose to deactive, they won't be able to login again.</p>
         <br>
-        <input type="submit" name="delete_user" value="Submit" class="add-submit-btn  submit-btn"></textarea>
+        <input type="submit" name="deactive_user" value="Submit" class="add-submit-btn  submit-btn"></textarea>
         <input type="reset" name="reset" value="Reset" class="submit-btn"></input>
     </form>
-    <!-- <?php
-    // if (isset($_POST['delete_user'])) {
-    //     $sql = "delete from cart where email = '$email'";
-    //     $result = ($con->query($sql));
-    //     if ($result)
-    //         echo "<p>Deleted cart items</p>";
-    //      $sql = "delete from order where email = '$email'";
-    //     $result = $con->query($sql);
-    //     if ($result)
-    //         echo "<p>Deleted order</p>";
-    //     $sql = "delete from user where email = '$email'";
-    //     $result = $con->query($sql);
-    //     if ($result)
-    //         echo "<p>Deleted cart user</p>";
-    //     $con->close();
-    // }
-    ?> -->
+    <?php
+    if (isset($_POST['deactive_user'])) {
+        $pass = md5($_POST['password']);
+        $sql = "select * from user where password = '$pass' and email = '$row[email]'";
+         $result = ($con->query($sql));
+         if ($result->num_rows>0){
+            $sql = "update user set is_active = 0 where password = '$pass' and email = '$row[email]'";
+            echo "<p style = 'color:green'>Deactived user!</p>";
+         }
+         else{
+            echo "<p style = 'color:red'>Wrong password!</p>";
+         }
+    }
+    ?> 
 
 </div>

@@ -22,7 +22,7 @@
                             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                                 $email = $_POST["email"];
                                 $password = md5($_POST["password"]);
-                                $sql = "select*from user where email = '$email' and password = '$password'  LIMIT 1";
+                                $sql = "select*from user where email = '$email' and password = '$password' and is_active = 1  LIMIT 1";
                                 $result = $con->query($sql);
                                 $row = $result->fetch_row();
                                 if ($result->num_rows > 0) {

@@ -1,12 +1,4 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
-    $_SESSION["query"]  = $_POST["s_query"];
-}
-if (isset($_GET["action"])){
-    unset($_GET["action"]);
-}
 
-?>
 <div class="view-and-search">
     <div class="search-box">
         <form method="POST" action="">
@@ -31,25 +23,14 @@ if (isset($_GET["action"])){
                 <th style="width: 20%;">Actions</th>
             </tr>
             <?php
-            $itemsPerPage = 5;
-            if (isset($_GET['id'])) {
-                $currentPage = $_GET['id'];
-            } else {
-                $currentPage = 1;
-            }
-            $offset = ($currentPage - 1) * $itemsPerPage;
-
             if (isset($_POST["s_query"])) {
                 $sql = "select * from user where email  like  '%$_POST[s_query]%'
          or fullname  like  '%$_POST[s_query]%' or phone_number  like  '%$_POST[s_query]%' or address  like  '%$_POST[s_query]%'
-        order by created_at desc LIMIT $offset, $itemsPerPage";
-                $totalItemsQuery = "SELECT COUNT(*) as total FROM user  where email  like  '%$_POST[s_query]%'
-         or fullname  like  '%$_POST[s_query]%' or phone_number  like  '%$_POST[s_query]%' or address  like  '%$_POST[s_query]%'
-        order by created_at ";
+         and is_active = 1
+        order by created_at desc";
                 unset($_POST["s_query"]);
             } else {
-                $sql = "select * from user  order by created_at desc LIMIT $offset, $itemsPerPage";
-                $totalItemsQuery = "SELECT COUNT(*) as total FROM user ";
+                $sql = "select * from user where is_active = 1  order by created_at desc ";
             }
 
             $result = mysqli_query($con, $sql);
@@ -95,25 +76,6 @@ if (isset($_GET["action"])){
                 <span>Total: </span>
                 <?php echo '<span class='page-value'>$temp users</span> 
             </div>";
-
-            $totalItemsResult = mysqli_query($con, $totalItemsQuery);
-            $totalItems = mysqli_fetch_assoc($totalItemsResult)['total'];
-            $totalPages = ceil($totalItems / $itemsPerPage);
-                echo "<div class='pagingation-nav-container'>";
-                echo "<ul class='pagination-nav'>";
-                for ($i = 1; $i <= $totalPages; $i++) {
-                    echo "
-                    <a href='index.php?page=user&id=$i'>
-                    <li class='page-item'>
-                    
-                    $i
-                    
-                    </li>
-                    </a>
-                    ";
-                }
-                echo "</ul>
-            </div> ";
         
     echo"</div>
     </div>

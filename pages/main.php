@@ -59,15 +59,7 @@ if ($temp == "myorder") {
     }
 }
 else
-if ($temp == "myorder") {
-    if (isset($_SESSION["ulogin"])) {
-        include("main/myorder.php");
-    } else {
-        header("location: index.php?page=login");
-    }
-}
 
-else
 {
     include("main/homepage.php");
     

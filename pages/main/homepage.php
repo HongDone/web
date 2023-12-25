@@ -1,9 +1,3 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
-    $_SESSION["query"] = $_POST["s_query"];  
-}
-
-?>
 
 <style>
     a{
@@ -95,13 +89,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
             <div class="showing-status-and-search">
                 <div class="search-box">
                     <form action="" method = "POST">
-                        <input type="search" name = "s_query" id="search" placeholder="Search something..." />
+                        <input type="search" name = "q" id="search" placeholder="Search something..." />
                         <input type="submit" class = "homepage-search-btn" value = "Search" name = "search">
                     </form>
                 </div>
                 <div class = "gr_by_cate">
                     <form action="" method = "POST">
-                       <select name="select_cate" style = "width: 200px; border-radius: 10px; padding: 10px; height: 50px; cursor: pointer;" id="">
+                       <select name="cate"  style = "width: 200px; border-radius: 10px; padding: 10px; height: 50px; cursor: pointer;" id="">
                             <?php
                                 $sql = "select * from category";
                                  $result = mysqli_query($con, $sql);
@@ -116,39 +110,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
             </div>
             <div>
                 <ul class="all-product-container">
-                <?php $itemsPerPage = 8;
-                if (isset($_GET['page'])) {
-                    $currentPage = $_GET['page'];
-                } else {
-                    $currentPage = 1;
-                }
-                $offset = ($currentPage - 1) * $itemsPerPage;
+                <?php
                 
-                if (isset($_POST["gr_by_cate"])){
+                if (isset($_POST["search"])) {
                     $shouldCallFunction = true;
-                    $category_id = $_POST["select_cate"];
+                    $key = $_POST["q"];
+                    $sql = "select * from product where title like '%$key%' ;";
+                    unset($_POST["search"]);
+                } 
+                else 
+                if (isset($_POST["gr_by_cate"])){
+                        $shouldCallFunction = true;
+                    $key = $_POST["cate"];
+                    $sql = "select * from product where category_id = '$key' ";
                     unset($_POST["gr_by_cate"]);
-                    $query = "select * from product where category_id = '$category_id'  LIMIT $offset, $itemsPerPage";
-                    $totalItemsQuery = "SELECT COUNT(*) as total FROM product where category_id = '$category_id'";
-                } else {
-                    if (isset($_SESSION["query"]) && $_SESSION["query"] != '') {
-                        if (isset($_SESSION["query"])) {
-                            $shouldCallFunction = true;
-                            $totalItemsQuery = "SELECT COUNT(*) as total FROM product where title like '%$_SESSION[query]%'";
-                            $query = "SELECT * FROM product where title like '%$_SESSION[query]%' LIMIT $offset, $itemsPerPage";
-                        }
-                    } else {
-                        $shouldCallFunction = false;
-                        $query = "SELECT * FROM product LIMIT $offset, $itemsPerPage";
-                        $totalItemsQuery = "SELECT COUNT(*) as total FROM product";
-                    }
-                    unset($_SESSION["query"]);
                 }
-                    $result = mysqli_query($con, $query);
-                    if ($result->num_rows == 0){
-                    echo "<p style = 'color: red' >No result founded!</p>";
-                    }
-                    else{
+                else{
+                        $shouldCallFunction = false;
+                     $sql = "select * from product";
+                }
+
+                $result = $con->query($sql);
+                if($result->num_rows>0){
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<li class='product-item'>";
                         echo "<a href = 'index.php?page=product_details&id=$row[product_id]'>";
@@ -161,21 +144,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
                         echo '</a>';
                         echo '</li>';
                     }
-                    echo "</ul>";
-                    $totalItemsResult = mysqli_query($con, $totalItemsQuery);
-                    $totalItems = mysqli_fetch_assoc($totalItemsResult)['total'];
-                    $totalPages = ceil($totalItems / $itemsPerPage);
+                }
+                else{
+                    echo "<p style= 'color:red'>No product founded!</p>";
+                }
+                echo "</ul>";
 
-                    echo "<ul class='pagination-container'>";
-                    for ($i = 1; $i <= $totalPages; $i++) {
-                        echo "<a href='index.php?page=$i'><li class='pag-item'>$i</li></a>";
-                    }}
-                
-                mysqli_close($con);
                 ?>
             </div>
-        </div>
-    </div>
+     <ul>
 </main>
 </div>
 <?php
@@ -188,7 +165,7 @@ if ($shouldCallFunction) {
         if (targetElement) {
             targetElement.scrollIntoView();
             behavior: "smooth";
-        }  ' ;
+        }  ';
     echo '}';
     echo '</script>';
 }

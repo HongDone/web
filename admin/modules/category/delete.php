@@ -8,7 +8,7 @@ if (isset($_GET["action"])&& $_GET["action"]=="delete") {
         echo "<p style = 'color:green'>Category deleted!</p>";
     }
     else{
-        echo "<p style = 'color:red'>It's seem like there're still products belong to this category active, delete them before please!</p>";
+        echo "<p style = 'color:red'>Cannot delete: It's seem like there're still products belong to this category active!</p>";
     }
     $con->close();
 }
