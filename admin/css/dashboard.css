@@ -1,0 +1,141 @@
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading h2 {
+    width: 30%;
+}
+
+
+
+
+
+#gerenal-infor {
+    margin-top: 20px;
+    width: 100%;
+    height: 26vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub-container {
+    width: 23%;
+    height: 80%;
+}
+
+.custom-background {
+    background-color: #f4f1f1;
+    border: none;
+    box-shadow: 1px 1px 3px gray;
+    border-radius: 5px;
+}
+
+.cell-title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.value {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 17pt;
+}
+
+#recently-infor {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#latest-orders {
+    width: 57%;
+
+}
+
+#latest-customers {
+    width: 40%;
+    flex: 1;
+    align-self: flex-start;
+    margin-left: 20px;
+}
+
+.title-of-recentlty-infors {
+    margin: 10px 10px;
+}
+
+#latest-orders-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.latest-order-infor {
+    width: 90%;
+    margin-left: 5%;
+    height: 130px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+}
+
+.order-number {
+    color: rgb(85, 4, 4);
+}
+
+.number-of-items {
+    margin-left: 5%;
+}
+
+.created-day,
+.owner {
+    margin-top: 15px;
+}
+
+.component-order-infor {
+    width: 80%;
+}
+
+.total-price {
+    font-weight: bold;
+    color: red;
+    width: 20%;
+    margin-top: 7%;
+    align-items: center;
+}
+
+#latest-customers-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.latest-customer-infor {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.customer-icon-container {
+    width: 45px;
+    height: 45px;
+    background-color: #858484;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.customer-icon-container i {
+    line-height: 40px;
+    font-size: 24px;
+}
+
+.customer-infors {
+    width: 65%;
+    margin-left: 20px;
+}

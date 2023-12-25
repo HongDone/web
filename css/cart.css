@@ -1,0 +1,91 @@
+.titletable {
+    margin-left: 300px;
+    font-size: 25px;
+}
+
+.cartitemdiv {
+    margin-top: 25px;
+    margin-left: 300px;
+    width: 650px;
+    border-radius: 10px;
+    border: 1px solid rgb(194, 193, 193);
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgb(228, 228, 227);
+
+}
+.pricesubtotal{
+    color: red;
+}
+.cartitem {
+    border-radius: 5px;
+    border-spacing: 10px;
+}
+
+.cartitem td img {
+    width: 100px;
+    height: 100px;
+}
+
+.cartitem td {
+    text-align: center;
+}
+
+.productimage {
+    width: 100px;
+    text-align: left;
+}
+
+.productname {
+    width: 300px;
+    text-align: left;
+}
+
+.quantity {
+    width: 50px;
+    text-align: left;
+}
+
+.productprice {
+    width: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: #f09d88;
+}
+
+.subtotal {
+    text-align: left;
+}
+
+.shipinfor {
+    text-align: left;
+}
+
+.btn-cartitem {
+    height: 30px;
+    background-color: #FFD1C6;
+    border: none;
+    width: 620px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #000000;
+    background-color: #FFD1C6;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px #999;
+}
+
+.btn-cartitem:hover {
+    background-color: #FFD1C6;
+}
+
+.btn-cartitem:active {
+    background-color: #FFD1C6;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

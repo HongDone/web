@@ -1,0 +1,97 @@
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20vh;
+    padding-top: 20vh;
+}
+
+.infor,
+.update-password{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.infor {
+    width: 57%;
+}
+
+.update-password {
+    width: 42%;
+    align-self: flex-start;
+}
+
+hr {
+    margin-top: 5px;
+}
+
+.admin-name,
+.contact,
+.address,
+.user-name-container {
+    font-size: 12pt;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    font-size: 11pt;
+    width: 95%;
+    padding-left: 15px;
+    border-radius: 25px;
+    border: 1px solid rgb(200, 199, 199);
+    height: 35px;
+}
+
+.full-name {
+    width: 100%;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.email {
+    width: 100%;
+}
+
+.user-name {
+    width: 100%;
+}
+
+.user-name input {
+    width: 95%;
+}
+
+.update {
+    font-size: 13pt;
+    background-color: #FFC6D1;
+    height: 45px;
+    margin-top: 20px;
+    border: none;
+    width: 94%;
+}
+
+.update:hover {
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    background-color: #f99daf;
+}
+
+.password input {
+    width: 94%;
+    margin-top: 20px;
+}
+
+.password-toggle-button {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: -35px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+

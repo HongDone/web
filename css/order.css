@@ -1,0 +1,178 @@
+/*CHI TIẾT ĐƠN HÀNG*/
+#detail {
+    padding: 45px 70px 80px 70px;
+    background-color: white; 
+}
+.titletable{
+margin-top: 50px;
+}
+#detail .row {
+    height: 100%;
+    margin-bottom: 21px;
+}
+
+#Oder-Details {
+    border-bottom: 1px solid #000;
+    padding-bottom: 7px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#info .row {
+    padding-bottom: 30px;
+}
+
+
+
+/*XÓA SẢN PHẨM*/
+#detail1 {
+    padding: 45px 70px 80px 70px;
+}
+
+#detail1 .row {
+    height: 100%;
+    margin: 0px;
+}
+
+.input-qty {
+    border-radius: 5px;
+    padding: 4px 15px;
+    border: 1px solid #8D8C8C;
+    color: #706C6C;
+}
+
+.cart-content {
+    border-radius: 5px;
+    border: 1px solid #CFC7C7;
+    padding: 14px 6px;
+    text-align: center;
+}
+
+#content1 {
+    background: #D9D9D9;
+    padding: 26px 21px;
+    width: 100%;
+}
+
+.btn1 {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24.5px;
+    color: #000;
+    background: #fff;
+    color: #000;
+    padding: 7px 22px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.btn1:hover {
+    background: #49A1F1;
+    color: #fff;
+}
+
+.collapse .card-body {
+    padding: 8px 12px;
+    width: 206px;
+    border-radius: 5px;
+}
+
+.card-body a {
+    margin-bottom: 4px;
+}
+
+p.popup {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: left;
+}
+
+.modal-content1 {
+    background: #0E141C;
+    color: #fff;
+    padding: 23px;
+    border-radius: 5px;
+    width: 560px;
+}
+
+.btn2 {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    background: #3A80E9;
+    color: #1C1818;
+    border: 1px solid #415FC9;
+    border-radius: 5px;
+    padding: 8px 41px;
+    margin-right: 13px;
+}
+
+.btn2-2 {
+    background: #0E141C;
+    color: #3A80E9;
+    border: 1px solid #2B303A;
+    padding: 8px 25px;
+}
+
+p.formtitle-update {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000;
+    text-align: left;
+    padding-bottom: 0px;
+}
+
+.modal .modal-content {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px 20px 70px 20px;
+}
+
+.modal .modal-body {
+    border-radius: 5px;
+    padding: 0px 0px;
+}
+
+.form-group,
+.form-floating {
+    margin-bottom: 13px;
+}
+
+.modal-content .form-control {
+    border-radius: 5px;
+    border: 1px solid #A69B9B;
+    height: 70px;
+}
+
+#form-all .form-group input {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    padding-left: 35px;
+}
+
+.btn-form {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    background: #38C1B9;
+    color: #fff;
+    border: 1px solid #A69B9B;
+    border-radius: 5px;
+    padding: 9px 20px;
+    margin-right: 18px;
+}
+
+.btn-form1 {
+    background: #fff;
+    color: #696363;
+    border: 1px solid #A69B9B;
+}

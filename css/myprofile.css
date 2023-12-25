@@ -1,0 +1,121 @@
+.myprofile-container {
+    margin: 0 auto;
+    padding-top: 5vh;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.update-password, .infor {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 20px;
+    border-radius: 10px;
+        background-color: white;
+}
+
+.infor {
+    width: 60%;
+}
+.update-password{
+    width: 37%; 
+    align-self: flex-start;
+}
+.label{
+    font-size: 15pt;
+    font-weight: bold;
+}
+.title{
+    margin-bottom: auto;
+}
+hr {
+    margin-top: 5px;
+}
+
+.user-name,
+.contact {
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    font-size: 11pt;
+    width: 91%;
+    padding-left: 15px;
+    border-radius: 25px;
+    border: 1px solid rgb(200, 199, 199);
+    height: 35px;
+}
+.name{
+    margin-top: 10px;
+}
+
+.full-name {
+    width: 106%;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.email {
+    width: 68%;
+}
+
+.phone-number {
+    width: 40%;
+}
+
+
+
+
+.billing-adress,
+.shipping-address {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.billing-adress input,
+.shipping-address input {
+    width: 48%;
+    margin-bottom: 10px;
+}
+
+.same-as-billing {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.update {
+    font-size: 13pt;
+    background-color: #FFC6D1;
+    height: 45px;
+    margin-top: 20px;
+    border: none;
+    width: 97.5%;
+}
+
+.update:hover {
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    background-color: #f99daf;
+}
+
+.password input {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.password-toggle-button {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: -35px;
+    opacity: 0.6;
+    cursor: pointer;
+}

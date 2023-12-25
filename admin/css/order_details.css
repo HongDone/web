@@ -1,0 +1,44 @@
+/*CHI TIẾT ĐƠN HÀNG*/
+
+#detail {
+    padding: 45px 70px 80px 70px;
+    background-color: white;
+}
+h3{
+    font-size: 15pt;
+}
+.col-2{
+    font-size: 13pt;
+}
+.titletable {
+    margin-top: 50px;
+}
+
+#detail .row {
+    height: 100%;
+    margin-bottom: 21px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#Oder-Details {
+    border-bottom: 1px solid #000;
+    padding-bottom: 7px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#info .row {
+    padding-bottom: 30px;
+}
+.col-10{
+    text-align: left;
+    width: 70%;
+}
+.price{
+    color: red;
+    font-size: bold;
+}
+.big{
+    font-size: 13pt;
+}
