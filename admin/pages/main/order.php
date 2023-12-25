@@ -55,17 +55,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
          $key = $_POST["status"];
          unset($_POST["submit_gr_by_status"]);
 
-         $query = "select * from orders where payment_status = '$key' order by order_date desc LIMIT $offset, $itemsPerPage";
+         $sql = "select * from orders where payment_status = '$key' order by order_date desc LIMIT $offset, $itemsPerPage";
          $totalItemsQuery = "SELECT COUNT(*) as total FROM orders where payment_status = '$key'";
      } else {
          if (isset($_SESSION["query"]) && $_SESSION["query"] != '') {
              if (isset($_SESSION["query"])) {
                  $totalItemsQuery = "SELECT COUNT(*) as total FROM orders where email  like  '%$_SESSION[query]%'";
-                 $query = "SELECT * FROM orders where email like '%$_SESSION[query]%' LIMIT $offset, $itemsPerPage";
+                 $sql = "SELECT * FROM orders where email like '%$_SESSION[query]%' LIMIT $offset, $itemsPerPage";
              }
          } else {
 
-             $query = "SELECT * FROM orders LIMIT $offset, $itemsPerPage";
+             $sql = "SELECT * FROM orders LIMIT $offset, $itemsPerPage";
              $totalItemsQuery = "SELECT COUNT(*) as total FROM orders";
          }
          unset($_SESSION["query"]);
@@ -114,7 +114,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
          $totalItemsResult = mysqli_query($con, $totalItemsQuery);
          $totalItems = mysqli_fetch_assoc($totalItemsResult)['total'];
          $totalPages = ceil($totalItems / $itemsPerPage);
-
+         echo ($totalItems);
+         echo $totalPages;
         echo "<div class='pagination-container'>
             <div class='showing-status'>
                 <span>Total: </span>
