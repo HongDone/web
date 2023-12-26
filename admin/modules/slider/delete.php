@@ -68,7 +68,7 @@
 
     $result = $con->query($sql);
     if ($result)
-    echo "<p style = 'color:red'>Deleted slider</p>";
+    echo "<p style = 'color:green'>Deleted slider</p>";
         else
             echo $con->error;
     $con->close();

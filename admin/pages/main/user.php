@@ -12,9 +12,6 @@
             </button>
         </div>
 <?php
-if (isset($_SESSION["query"])) {
-    unset($_SESSION["query"]);
-}
 if (isset($_GET["action"])) {
     $temp1 = $_GET["action"];
 } else {

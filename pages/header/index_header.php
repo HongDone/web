@@ -1,7 +1,8 @@
 <div class="header">
     <div class="header-logo-brand-container">
-        <a href="./index.php">
-            <h2 class = "brand-name">Logo Brand</h2>
+        <a href="./index.php" style = 'height:100%'>
+            <!-- <h2 class = "brand-name">Logo Brand</h2> -->
+            <img style = 'height: 140px; width: 130px; margin-top: 5px;' src="./images/Logo_web-removebg-preview.png" alt="">
         </a>
     </div>
     <div class="header-cart-and-user">

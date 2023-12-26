@@ -63,7 +63,7 @@
                     echo "<a style = 'color:black; text-decoration:none' href = 'index.php?page=user&action=delete&id=" . $row['email'] . " '>";
                     echo "<li class='delete-button '>
                                     <i class='fas fa-trash   '></i>
-                                    Delete
+                                    Deactive
                                 </li>
                             </ul>";
                     echo "</td>";

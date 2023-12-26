@@ -1,5 +1,7 @@
 <nav class="sidebar">
-    <a href="#" class="logo">LogoBrand</a>
+    <a href="#" class="logo" style =' margin: 0; padding: 0'>
+        <img style = 'height: 120px; width: 130px;' src="../images/Logo_web-removebg-preview.png" alt="">
+    </a>
     <div class="menu-content">
         <ul class="menu-items">
             <li class="item" id="dashboard">

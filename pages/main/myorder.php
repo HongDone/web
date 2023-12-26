@@ -27,7 +27,7 @@
         </tr>
         <?php
         include "./modules/cart.php";
-        $sql = "select * from orders where email = '$_SESSION[ulogin]' order by order_date desc";
+        $sql = "select * from orders where email = '$_SESSION[ulogin]' order by payment_status desc";
         $result = mysqli_query($con, $sql);
         if ($result->num_rows < 1) {
             echo "<tr><td colspan = 6><p style = 'color: red'>No order yet!</p></td></tr>";
@@ -59,9 +59,11 @@
             </td>
         </tr>";
         }
-            echo "</table>";
-            echo "<p style='margin-left: 200px'> Total: $temp orders</p>";
+            echo "<p style='margin-left: 200px'> Total: $temp orders</p>";         
         }
+
+        echo "</table>";
+
         ?>
         </section>
 </main>

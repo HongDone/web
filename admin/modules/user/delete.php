@@ -76,14 +76,16 @@
     if (isset($_POST['deactive_user'])) {
         $pass = md5($_POST['password']);
         $sql = "select * from user where password = '$pass' and email = '$row[email]'";
-         $result = ($con->query($sql));
+        $result = ($con->query($sql));
          if ($result->num_rows>0){
-            $sql = "update user set is_active = 0 where password = '$pass' and email = '$row[email]'";
+            $sql = "update user set is_active = 0 where email = '$row[email]'";
+            $con->query($sql);
             echo "<p style = 'color:green'>Deactived user!</p>";
          }
          else{
             echo "<p style = 'color:red'>Wrong password!</p>";
          }
+        $con->close();
     }
     ?> 
 

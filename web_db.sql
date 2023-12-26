@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 25, 2023 lúc 05:14 PM
+-- Thời gian đã tạo: Th12 26, 2023 lúc 02:36 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -98,7 +98,8 @@ INSERT INTO `cart` (`cart_id`, `email`, `product_id`, `quantity`, `total_price`,
 (96, 'nguyenhongdoan3012@gmail.com', 84, 1, 500000, '2023-12-25 19:04:35', 1, 36),
 (97, 'bichngoc111@gmail.com', 85, 1, 167000000, '2023-12-25 19:22:16', 1, 37),
 (98, 'bichngoc111@gmail.com', 68, 1, 160000, '2023-12-25 21:55:26', 1, 37),
-(99, 'nganha0701@gmail.com', 85, 1, 167000000, '2023-12-25 22:10:05', 1, 38);
+(99, 'nganha0701@gmail.com', 85, 1, 167000000, '2023-12-25 22:10:05', 1, 38),
+(101, 'ngocphung27112@gmail.com', 65, 1, 20000, '2023-12-26 08:21:55', 1, 39);
 
 -- --------------------------------------------------------
 
@@ -127,27 +128,6 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 (2, 'Shampo'),
 (29, 'Sun cream'),
 (17, 'Toner');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `deal`
---
-
-CREATE TABLE `deal` (
-  `deal_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `price` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `deal`
---
-
-INSERT INTO `deal` (`deal_id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
-(1, 1, 22, 1, 1000);
 
 -- --------------------------------------------------------
 
@@ -187,7 +167,8 @@ INSERT INTO `orders` (`order_id`, `fullname`, `email`, `phone_number`, `address`
 (35, 'Nguyễn Hồng Đoan', 'nguyenhongdoan3012@gmail.com', '0937102105', 'Phuof2', '', '2023-12-24 15:29:41', 'unpaid', 1060000),
 (36, 'Nguyễn Hồng Đoan', 'nguyenhongdoan3012@gmail.com', '0906326818', 'Long Ann', '', '2023-12-25 12:04:55', 'paid', 1840000),
 (37, 'Ngọc', 'bichngoc111@gmail.com', '02322232', 'Nothing yet.', '', '2023-12-25 14:57:24', 'paid', 167160000),
-(38, 'Ngân Hà', 'nganha0701@gmail.com', '0922112115', 'Quốc Lộ 1, Phường 2', '', '2023-12-25 15:10:18', 'paid', 167000000);
+(38, 'Ngân Hà', 'nganha0701@gmail.com', '0922112115', 'Quốc Lộ 1, Phường 2', '', '2023-12-25 15:10:18', 'paid', 167000000),
+(39, 'Ngọc Phụng', 'ngocphung27112@gmail.com', '0988223111', 'Long An', '', '2023-12-26 01:22:00', 'unpaid', 20000);
 
 -- --------------------------------------------------------
 
@@ -222,8 +203,7 @@ INSERT INTO `product` (`product_id`, `category_id`, `title`, `price`, `image`, `
 (72, 19, 'Tinh dầu nguyên chất', 1000000, 'dau-goi-bo-ket-thao-duoc-dau-goi-bo-ket-co-dac-boboon.jpg', 'Siêu thơm, thích hợp cho da nhạy cảm', '2023-12-23 15:47:39'),
 (77, 3, 'Nuoc hoa 64', 1000000, 'anhlopphutieude-removebg-preview.png', '', '2023-12-24 18:51:17'),
 (82, 33, 'Sữa dưỡng thể lLorrem số 1 VN', 230000, 'product1.png', 'Dịu nhẹ sáng da', '2023-12-25 00:26:17'),
-(83, 3, 'Nước hoa lưu hương 3 ngày', 100000, 'banner5-20220501032023.png', '', '2023-12-25 00:26:48'),
-(84, 1, 'Combo 4 chai nước hoa giá siu hữu nghị', 500000, 'banner5-20220501032023.png', 'Chính hãng từ Pháp với hoa hồng Bungaria', '2023-12-25 00:27:40'),
+(84, 1, 'Combo 4 chai nước hoa giá siu hữu nghị', 500000, 'banner5-20220501032023.png', 'Chính hãng từ Pháp với hoa hồng Bungaria', '2023-11-25 00:27:40'),
 (85, 17, 'Dưỡng nhan làm đẹp da ngăn lão hóa', 167000000, 'anhlopphutieude-removebg-preview.png', 'Chiết xuất từ hoa bồ công anh đạt chứng chỉ ISO900:1500', '2023-12-25 02:07:09');
 
 -- --------------------------------------------------------
@@ -245,8 +225,7 @@ CREATE TABLE `slider` (
 
 INSERT INTO `slider` (`slide_id`, `product_id`, `image`, `created_at`) VALUES
 (2, 68, 'background footer.png', '2023-12-25 08:02:04'),
-(3, 82, 'Giao diện website-2.jpg', '2023-12-25 08:26:15'),
-(4, 83, 'istockphoto-1160916529-1024x1024.jpg', '2023-12-25 08:39:39'),
+(4, 82, 'istockphoto-1160916529-1024x1024.jpg', '2023-12-26 01:32:06'),
 (5, 72, 's-20220501061127.png', '2023-12-25 15:35:37');
 
 -- --------------------------------------------------------
@@ -272,18 +251,18 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`email`, `fullname`, `phone_number`, `password`, `address`, `created_at`, `is_active`, `reset_token_hash`, `reset_token_expires_at`) VALUES
-('215207299@gm.uit.edu.vn', 'Bui Thi Bao Tran', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'Long Ann', '2023-12-22 09:27:57', 0, NULL, NULL),
+('215207299@gm.uit.edu.vn', 'Bui Thi Bao Tran', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'Long Ann', '2023-12-22 09:27:57', 1, NULL, NULL),
 ('bichngoc111@gmail.com', 'Ngọc', '02322232', '827ccb0eea8a706c4c34a16891f84e7b', 'Nothing yet.', '2023-12-25 12:05:50', 0, NULL, NULL),
-('bichngoc@gmail.com', 'Bui Thi Bao Tran', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'Long Ann', '2023-12-24 15:13:23', 0, NULL, NULL),
-('bitrix24@gmail.com', 'Hồng Hạnh', '0922123126', '827ccb0eea8a706c4c34a16891f84e7b', 'Linh Trung', '2023-12-25 10:07:09', 0, NULL, NULL),
-('minicircuits@gmail.com', 'Ca Chua', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'TP HCM', '2023-12-22 09:30:38', 0, NULL, NULL),
-('nganha0701@gmail.com', 'Ngân Hà', '0922112115', '827ccb0eea8a706c4c34a16891f84e7b', 'Quốc Lộ 1, Phường 2', '2023-12-25 10:07:42', 0, NULL, NULL),
-('ngocphung27112@gmail.com', 'Ngọc Phụng', '0988223111', 'e10adc3949ba59abbe56e057f20f883e', 'Long An', '2023-12-25 10:05:51', 0, NULL, NULL),
-('nguyenhongdoan3012@gmail.com', 'Nguyễn Hồng Đoan', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'Long Ann', '2023-12-22 10:53:21', 0, 'a1a5b1c8729319b566251c9cb26b193191993e2ae32d56fd71fa0f0878d80483', '2023-12-25 16:46:14'),
-('nguyenhongdoan@gmail.com', 'Bui Thi Bao Tran', '0906326818', '12345', 'Long Ann', '2023-12-22 04:41:52', 0, NULL, NULL),
-('tranthibichngoc0701@gmail.com', 'Tran Thi Bich Ngoc', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'Nghe An', '2023-12-25 02:00:54', 0, NULL, NULL),
-('user2@gmail.com', 'Bui Thi Bao Tran', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'Long Ann', '2023-12-22 04:41:52', 0, NULL, NULL),
-('vuhong@gmail.com', 'Hồng Ngọc', '123455', '827ccb0eea8a706c4c34a16891f84e7b', 'Linh Trung', '2023-12-25 10:08:14', 0, NULL, NULL);
+('bichngoc@gmail.com', 'Bui Thi Bao Tran', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'Long Ann', '2023-12-24 15:13:23', 1, NULL, NULL),
+('bitrix24@gmail.com', 'Hồng Hạnh', '0922123126', '827ccb0eea8a706c4c34a16891f84e7b', 'Linh Trung', '2023-12-25 10:07:09', 1, NULL, NULL),
+('minicircuits@gmail.com', 'Ca Chua', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'TP HCM', '2023-12-22 09:30:38', 1, NULL, NULL),
+('nganha0701@gmail.com', 'Ngân Hà', '0922112115', '827ccb0eea8a706c4c34a16891f84e7b', 'Quốc Lộ 1, Phường 2', '2023-12-25 10:07:42', 1, NULL, NULL),
+('ngocphung27112@gmail.com', 'Ngọc Phụng', '0988223111', 'e10adc3949ba59abbe56e057f20f883e', 'Long An', '2023-12-25 10:05:51', 1, NULL, NULL),
+('nguyenhongdoan3012@gmail.com', 'Nguyễn Hồng Đoan', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'Long Ann', '2023-12-22 10:53:21', 1, 'a1a5b1c8729319b566251c9cb26b193191993e2ae32d56fd71fa0f0878d80483', '2023-12-25 16:46:14'),
+('nguyenhongdoan@gmail.com', 'Bui Thi Bao Tran', '0906326818', '12345', 'Long Ann', '2023-12-22 04:41:52', 1, NULL, NULL),
+('tranthibichngoc0701@gmail.com', 'Tran Thi Bich Ngoc', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'Nghe An', '2023-12-25 02:00:54', 1, NULL, NULL),
+('user2@gmail.com', 'Bui Thi Bao Tran', '0906326818', '827ccb0eea8a706c4c34a16891f84e7b', 'Long Ann', '2023-12-22 04:41:52', 1, NULL, NULL),
+('vuhong@gmail.com', 'Hồng Ngọc', '123455', '827ccb0eea8a706c4c34a16891f84e7b', 'Linh Trung', '2023-12-25 10:08:14', 1, NULL, NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -310,14 +289,6 @@ ALTER TABLE `cart`
 ALTER TABLE `category`
   ADD PRIMARY KEY (`category_id`),
   ADD UNIQUE KEY `category_name` (`category_name`);
-
---
--- Chỉ mục cho bảng `deal`
---
-ALTER TABLE `deal`
-  ADD PRIMARY KEY (`deal_id`),
-  ADD KEY `order_id` (`order_id`),
-  ADD KEY `product_id` (`product_id`);
 
 --
 -- Chỉ mục cho bảng `orders`
@@ -362,7 +333,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -371,16 +342,10 @@ ALTER TABLE `category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT cho bảng `deal`
---
-ALTER TABLE `deal`
-  MODIFY `deal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
@@ -406,13 +371,6 @@ ALTER TABLE `cart`
   ADD CONSTRAINT `fk_cart_user` FOREIGN KEY (`email`) REFERENCES `user` (`email`);
 
 --
--- Các ràng buộc cho bảng `deal`
---
-ALTER TABLE `deal`
-  ADD CONSTRAINT `deal_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-  ADD CONSTRAINT `deal_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
-
---
 -- Các ràng buộc cho bảng `orders`
 --
 ALTER TABLE `orders`
@@ -423,6 +381,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`);
+
+--
+-- Các ràng buộc cho bảng `slider`
+--
+ALTER TABLE `slider`
+  ADD CONSTRAINT `slider_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
